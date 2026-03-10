@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ahammed Rahees | Software Engineer</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap"
+            rel="stylesheet"
+        />
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            mono: ["JetBrains Mono", "monospace"],
+                        },
+                        colors: {
+                            brand: {
+                                bg: "#0A0A0A",
+                                surface: "#171717",
+                                primary: "#38bdf8",
+                                text: "#A3A3A3",
+                                white: "#FAFAFA",
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            body {
+                background-color: #0a0a0a;
+                color: #a3a3a3;
+            }
+            .glass-card {
+                background: rgba(23, 23, 23, 0.7);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .hover-accent:hover {
+                color: #38bdf8;
+                transition: color 0.2s ease-in-out;
+            }
+        </style>
+    </head>
+    <body
+        class="antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen"
+    >
+        <!-- Navbar -->
+        <header
+            class="fixed w-full top-0 z-50 glass-card border-b-0 border-white/5"
+        >
+            <div
+                class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
+            >
+                <a
+                    href="#"
+                    class="text-brand-white font-mono font-bold text-lg tracking-tighter hover-accent"
+                    >~/rahees</a
+                >
+                <nav class="hidden sm:flex gap-6 text-sm font-mono">
+                    <a href="#experience" class="hover-accent">Experience</a>
+                    <a href="#projects" class="hover-accent">Projects</a>
+                    <a href="#skills" class="hover-accent">Skills</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow max-w-4xl mx-auto px-6 pt-32 pb-20 w-full">
+            <!-- Hero Section -->
+            <section class="mb-24 animate-fade-in-up">
+                <p class="font-mono text-brand-primary mb-4 text-sm">
+                    &gt; console.log("Hello, World!")
+                </p>
+                <h1
+                    class="text-5xl sm:text-6xl font-extrabold text-brand-white tracking-tight mb-6"
+                >
+                    Ahammed Rahees.
+                </h1>
+                <h2
+                    class="text-2xl sm:text-3xl text-brand-text mb-6 font-medium"
+                >
+                    I build reliable backends and performant full-stack systems.
+                </h2>
+                <p class="text-lg leading-relaxed max-w-2xl mb-8">
+                    I am a Software Engineer based in Dubai, specializing in
+                    Node.js, Rust, Go, and Svelte. From architecting
+                    decentralized Web3 infrastructure to engineering
+                    AI-orchestrated tools, I focus on building scalable,
+                    capital-efficient, and privacy-first applications.
+                </p>
+                <div class="flex flex-wrap gap-4 font-mono text-sm">
+                    <a
+                        href="mailto:ahdrahees0@gmail.com"
+                        class="px-5 py-2.5 bg-brand-primary text-brand-bg font-bold rounded hover:bg-sky-400 transition-colors"
+                    >
+                        Get in touch
+                    </a>
+                    <a
+                        href="https://github.com/ahdrahees/"
+                        target="_blank"
+                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
+                    >
+                        GitHub
+                    </a>
+                    <a
+                        href="https://linkedin.com/in/ahdrahees/"
+                        target="_blank"
+                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
+                    >
+                        LinkedIn
+                    </a>
+                    <a
+                        href="https://www.boot.dev/u/rahees"
+                        target="_blank"
+                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
+                    >
+                        Boot.dev
+                    </a>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="mb-24 pt-10">
+                <h3
+                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
+                >
+                    <span class="font-mono text-brand-primary text-lg"
+                        >01.</span
+                    >
+                    Experience
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Job 1 -->
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                        <div
+                            class="sm:w-32 flex-shrink-0 font-mono text-sm mt-1 text-brand-text"
+                        >
+                            2024 - 2025
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-brand-white">
+                                Director of Engineering / Software Engineer
+                            </h4>
+                            <p
+                                class="font-mono text-brand-primary text-sm mb-4"
+                            >
+                                Doxa Dollar | Doxa Foundation
+                            </p>
+                            <p class="mb-4 text-sm leading-relaxed">
+                                Architected a capital-efficient stablecoin
+                                platform on Internet Computer (ICP), optimizing
+                                capital efficiency by 100% via a
+                                non-over-collateralized peg mechanism. Developed
+                                secure Motoko smart contracts and built the
+                                fully on-chain frontend using SvelteKit.
+                            </p>
+                            <!-- Added Links -->
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a
+                                    href="https://app.doxadao.org/stake/"
+                                    target="_blank"
+                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
+                                >
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        ></path>
+                                    </svg>
+                                    Website
+                                </a>
+                                <a
+                                    href="https://github.com/DoxaFoundation/doxa-v3"
+                                    target="_blank"
+                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
+                                >
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                        />
+                                    </svg>
+                                    Repo V3
+                                </a>
+                                <a
+                                    href="https://github.com/DoxaFoundation/Doxa"
+                                    target="_blank"
+                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
+                                >
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                        />
+                                    </svg>
+                                    Repo V2
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                        <div
+                            class="sm:w-32 flex-shrink-0 font-mono text-sm mt-1 text-brand-text"
+                        >
+                            2024 - 2025
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-brand-white">
+                                Frontend Developer
+                            </h4>
+                            <p
+                                class="font-mono text-brand-primary text-sm mb-4"
+                            >
+                                Velocity
+                            </p>
+                            <p class="mb-4 text-sm leading-relaxed">
+                                Optimized global state and API calls for a
+                                decentralized social media app on AO Arweave,
+                                reducing initial page load times by 25%.
+                                Implemented core communication features using
+                                the Nostr protocol to ensure
+                                censorship-resistant data handling.
+                            </p>
+                            <!-- Added Links -->
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <a
+                                    href="https://velocity.ar.io/"
+                                    target="_blank"
+                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
+                                >
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        ></path>
+                                    </svg>
+                                    Website
+                                </a>
+                                <a
+                                    href="https://github.com/SpaceTurtle-Dao/Velocity"
+                                    target="_blank"
+                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
+                                >
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                        />
+                                    </svg>
+                                    Repo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-24 pt-10">
+                <h3
+                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
+                >
+                    <span class="font-mono text-brand-primary text-lg"
+                        >02.</span
+                    >
+                    Selected Projects
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div
+                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
+                    >
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-brand-white">
+                                Gefifi
+                            </h4>
+                            <a
+                                href="https://github.com/ahdrahees/gefifi"
+                                target="_blank"
+                                class="text-brand-text hover:text-brand-primary"
+                            >
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-sm mb-6 flex-grow">
+                            An AI-powered construction marketplace. Architected
+                            an AI orchestration layer using Python and Gemini AI
+                            to parse construction documents (DWG/PDF), alongside
+                            a real-time chat system with Svelte 5.
+                        </p>
+                        <div
+                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
+                        >
+                            <span>Svelte 5</span> <span>Python</span>
+                            <span>Gemini AI</span> <span>GCP</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div
+                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
+                    >
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-brand-white">
+                                AI Trainer
+                            </h4>
+                            <a
+                                href="https://github.com/v2i0s2h2/ai_tr"
+                                target="_blank"
+                                class="text-brand-text hover:text-brand-primary"
+                            >
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-sm mb-6 flex-grow">
+                            A DevOps & Computer Vision Platform. Containerized a
+                            monorepo application using Docker multi-stage builds
+                            and automated CI/CD pipelines deploying SvelteKit to
+                            Cloudflare and Python APIs via Dokploy.
+                        </p>
+                        <div
+                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
+                        >
+                            <span>FastAPI</span> <span>Docker</span>
+                            <span>Cloudflare</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div
+                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
+                    >
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold text-brand-white">
+                                Cipher Box
+                            </h4>
+                            <a
+                                href="https://github.com/ahdrahees/cipher-box"
+                                target="_blank"
+                                class="text-brand-text hover:text-brand-primary"
+                            >
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-sm mb-6 flex-grow">
+                            Designed a fully on-chain password manager and TOTP
+                            generator using VETKeys (Threshold Encryption) for
+                            zero-knowledge data privacy. Awarded 1st Place at
+                            the ICP Zero to Dapp Hackathon.
+                        </p>
+                        <div
+                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
+                        >
+                            <span>Rust</span> <span>Motoko</span>
+                            <span>VETKeys</span> <span>Svelte</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="mb-24 pt-10">
+                <h3
+                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
+                >
+                    <span class="font-mono text-brand-primary text-lg"
+                        >03.</span
+                    >
+                    Core Technologies
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div>
+                        <h4
+                            class="text-sm font-mono text-brand-primary mb-4 border-b border-white/10 pb-2"
+                        >
+                            Backend & Infrastructure
+                        </h4>
+                        <ul class="flex flex-wrap gap-2">
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Node.js
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Bun
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Rust
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Golang
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Python
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Docker
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                GCP / AWS
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Firebase
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-sm font-mono text-brand-primary mb-4 border-b border-white/10 pb-2"
+                        >
+                            Frontend, AI & Web3
+                        </h4>
+                        <ul class="flex flex-wrap gap-2">
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Svelte / SvelteKit
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                TypeScript
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                React
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Tailwind CSS
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Agentic AI (Gemini)
+                            </li>
+                            <!-- Added ADK -->
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                ADK (Agent Development Kit)
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                Motoko
+                            </li>
+                            <li
+                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
+                            >
+                                ICP
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/5 mt-auto">
+            <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col items-center">
+                <p class="font-mono text-sm mb-2 text-brand-text">
+                    Built by Ahammed Rahees
+                </p>
+                <p class="text-xs">Based in Dubai, UAE</p>
+            </div>
+        </footer>
+    </body>
+</html>
