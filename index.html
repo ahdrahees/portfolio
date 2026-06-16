@@ -1,605 +1,967 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ahammed Rahees | Software Engineer</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap"
-            rel="stylesheet"
-        />
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: ["Inter", "sans-serif"],
-                            mono: ["JetBrains Mono", "monospace"],
-                        },
-                        colors: {
-                            brand: {
-                                bg: "#0A0A0A",
-                                surface: "#171717",
-                                primary: "#38bdf8",
-                                text: "#A3A3A3",
-                                white: "#FAFAFA",
-                            },
-                        },
-                    },
-                },
-            };
-        </script>
-        <style>
-            body {
-                background-color: #0a0a0a;
-                color: #a3a3a3;
-            }
-            .glass-card {
-                background: rgba(23, 23, 23, 0.7);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            .hover-accent:hover {
-                color: #38bdf8;
-                transition: color 0.2s ease-in-out;
-            }
-        </style>
-    </head>
-    <body
-        class="antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen"
-    >
-        <!-- Navbar -->
-        <header
-            class="fixed w-full top-0 z-50 glass-card border-b-0 border-white/5"
-        >
-            <div
-                class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
-            >
-                <a
-                    href="#"
-                    class="text-brand-white font-mono font-bold text-lg tracking-tighter hover-accent"
-                    >~/rahees</a
-                >
-                <nav class="hidden sm:flex gap-6 text-sm font-mono">
-                    <a href="#experience" class="hover-accent">Experience</a>
-                    <a href="#projects" class="hover-accent">Projects</a>
-                    <a href="#skills" class="hover-accent">Skills</a>
-                </nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahammed Rahees — Backend Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D0D0D;
+      --surface:   #141414;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #C8F55A;       /* warm acid-lime — engineer+builder energy */
+      --accent-dim:#9EBF3E;
+      --text:      #BDBDBD;
+      --text-sub:  #6B6B6B;
+      --white:     #F2F2F2;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --max:       780px;
+      --gap:       clamp(48px, 8vw, 96px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: #0D0D0D; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-logo .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding-top: var(--gap);
+      padding-bottom: var(--gap);
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .section-label span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: calc(56px + var(--gap));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 60px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #0D0D0D;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #D8FF6A; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      transition: border-color 0.15s, color 0.15s, transform 0.15s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-top: 52px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+    .stat-num {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .stat-num sup { font-size: 14px; color: var(--accent); }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.03em;
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+
+    .exp-content {}
+
+    .exp-role {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+
+    .exp-company {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .exp-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--surface);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .exp-link:hover { color: var(--white); border-color: rgba(255,255,255,0.15); }
+
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .proj-card {
+      background: var(--bg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.15s;
+      position: relative;
+    }
+
+    .proj-card:hover { background: var(--surface); }
+
+    .proj-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .proj-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .proj-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent);
+      background: rgba(200,245,90,0.08);
+      border: 1px solid rgba(200,245,90,0.2);
+      padding: 2px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .proj-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .proj-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-sub);
+      letter-spacing: 0.02em;
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .proj-link-icon {
+      color: var(--text-sub);
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+    }
+
+    .proj-link-icon:hover { color: var(--white); }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 48px;
+    }
+
+    .skill-group-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 3px;
+      transition: color 0.15s, border-color 0.15s;
+      cursor: default;
+    }
+
+    .pill:hover { color: var(--white); border-color: rgba(255,255,255,0.15); }
+
+    .pill.primary {
+      color: var(--accent);
+      background: rgba(200,245,90,0.05);
+      border-color: rgba(200,245,90,0.18);
+    }
+
+    /* ── HACKATHONS ── */
+    .awards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .award-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .award-row:last-child { border-bottom: none; }
+
+    .award-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .award-icon.win  { background: rgba(200,245,90,0.1);  }
+    .award-icon.fin  { background: rgba(255,255,255,0.04); }
+
+    .award-info { flex: 1; }
+    .award-name {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 1px;
+    }
+
+    .award-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .award-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .award-badge.win { color: var(--accent); background: rgba(200,245,90,0.08); border: 1px solid rgba(200,245,90,0.2); }
+    .award-badge.fin { color: var(--text-sub); background: var(--surface); border: 1px solid var(--border); }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .footer-left a { color: var(--text-sub); transition: color 0.15s; }
+    .footer-left a:hover { color: var(--white); }
+
+    .footer-right {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    /* ── ICONS ── */
+    .icon { display: inline-block; vertical-align: middle; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid   { grid-template-columns: 1fr; }
+      .exp-item      { grid-template-columns: 1fr; gap: 4px; }
+      .exp-period    { font-size: 11px; margin-bottom: 8px; }
+      .nav-links     { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+
+    /* ── SUBTLE ENTRANCE ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #hero > * {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    #hero .hero-eyebrow { animation-delay: 0.05s; }
+    #hero h1            { animation-delay: 0.12s; }
+    #hero .hero-desc    { animation-delay: 0.18s; }
+    #hero .hero-actions { animation-delay: 0.24s; }
+    #hero .stats-strip  { animation-delay: 0.30s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="dot"></span>
+        rahees.at0.app
+      </a>
+      <ul class="nav-links">
+        <li><a href="#experience">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#awards">Awards</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <p class="hero-eyebrow">Backend · Full-Stack · AI</p>
+      <h1>Building systems<br>that <em>actually</em> ship.</h1>
+      <p class="hero-desc">
+        I'm Ahammed Rahees — a software engineer specialising in Go, Node.js,
+        and Python. I design backend systems, real-time APIs, and AI-powered
+        tooling that handles production load.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:ahdrahees0@gmail.com" class="btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Get in touch
+        </a>
+        <a href="https://github.com/ahdrahees" target="_blank" class="btn-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/ahdrahees" target="_blank" class="btn-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.boot.dev/u/rahees" target="_blank" class="btn-ghost">
+          Boot.dev
+        </a>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat-item">
+          <div class="stat-num">2<sup>+</sup></div>
+          <div class="stat-label">Years shipping</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Shipped projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Hackathon wins</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">90<sup>%</sup></div>
+          <div class="stat-label">Docker size reduction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-label"><span>Work</span></div>
+
+      <div class="exp-item">
+        <div class="exp-period">Jan 2024<br>Dec 2025</div>
+        <div class="exp-content">
+          <div class="exp-role">Cofounder &amp; Engineering Lead</div>
+          <div class="exp-company">Doxa Foundation</div>
+          <p class="exp-desc">
+            Architected a capital-efficient stablecoin platform on Internet Computer (ICP)
+            — a non-over-collateralized peg mechanism that cut collateral requirements by 100%.
+            Built all smart contracts in Motoko and shipped the full-stack frontend entirely
+            on-chain using SvelteKit.
+          </p>
+          <div class="exp-links">
+            <a href="https://app.doxadao.org/stake/" target="_blank" class="exp-link">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Website
+            </a>
+            <a href="https://github.com/DoxaFoundation/doxa-v3" target="_blank" class="exp-link">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Repo V3
+            </a>
+            <a href="https://github.com/DoxaFoundation/Doxa" target="_blank" class="exp-link">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Repo V2
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">Oct 2024<br>Feb 2025</div>
+        <div class="exp-content">
+          <div class="exp-role">Frontend Developer</div>
+          <div class="exp-company">Velocity</div>
+          <p class="exp-desc">
+            Optimized global state and API calls for a decentralised social media app built on
+            AO Arweave, cutting initial page load time by 25%. Implemented core features using
+            the Nostr protocol for censorship-resistant data handling.
+          </p>
+          <div class="exp-links">
+            <a href="https://velocity.ar.io/" target="_blank" class="exp-link">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Website
+            </a>
+            <a href="https://github.com/SpaceTurtle-Dao/Velocity" target="_blank" class="exp-link">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Repo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-label"><span>Selected Projects</span></div>
+
+      <div class="projects-grid">
+
+        <!-- Gefifi -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">Gefifi</div>
+            <span class="proj-badge">Latest</span>
+          </div>
+          <p class="proj-desc">AI-powered construction marketplace. Automated parsing of DWG/PDF documents via Gemini AI, real-time chat with voice messaging and presence tracking.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Svelte 5</span> &middot;
+              <span class="proj-tag">Python</span> &middot;
+              <span class="proj-tag">Gemini AI</span> &middot;
+              <span class="proj-tag">GCP</span>
             </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="flex-grow max-w-4xl mx-auto px-6 pt-32 pb-20 w-full">
-            <!-- Hero Section -->
-            <section class="mb-24 animate-fade-in-up">
-                <p class="font-mono text-brand-primary mb-4 text-sm">
-                    &gt; console.log("Hello, World!")
-                </p>
-                <h1
-                    class="text-5xl sm:text-6xl font-extrabold text-brand-white tracking-tight mb-6"
-                >
-                    Ahammed Rahees.
-                </h1>
-                <h2
-                    class="text-2xl sm:text-3xl text-brand-text mb-6 font-medium"
-                >
-                    I build reliable backends and performant full-stack systems.
-                </h2>
-                <p class="text-lg leading-relaxed max-w-2xl mb-8">
-                    I am a Software Engineer based in Dubai, specializing in
-                    Node.js, Rust, Go, and Svelte. From architecting
-                    decentralized Web3 infrastructure to engineering
-                    AI-orchestrated tools, I focus on building scalable,
-                    capital-efficient, and privacy-first applications.
-                </p>
-                <div class="flex flex-wrap gap-4 font-mono text-sm">
-                    <a
-                        href="mailto:ahdrahees0@gmail.com"
-                        class="px-5 py-2.5 bg-brand-primary text-brand-bg font-bold rounded hover:bg-sky-400 transition-colors"
-                    >
-                        Get in touch
-                    </a>
-                    <a
-                        href="https://github.com/ahdrahees/"
-                        target="_blank"
-                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
-                    >
-                        GitHub
-                    </a>
-                    <a
-                        href="https://linkedin.com/in/ahdrahees/"
-                        target="_blank"
-                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
-                    >
-                        LinkedIn
-                    </a>
-                    <a
-                        href="https://www.boot.dev/u/rahees"
-                        target="_blank"
-                        class="px-5 py-2.5 glass-card text-brand-white rounded hover:border-brand-primary transition-colors"
-                    >
-                        Boot.dev
-                    </a>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="mb-24 pt-10">
-                <h3
-                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
-                >
-                    <span class="font-mono text-brand-primary text-lg"
-                        >01.</span
-                    >
-                    Experience
-                </h3>
-
-                <div class="space-y-12">
-                    <!-- Job 1 -->
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                        <div
-                            class="sm:w-32 flex-shrink-0 font-mono text-sm mt-1 text-brand-text"
-                        >
-                            2024 - 2025
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-brand-white">
-                                Director of Engineering / Software Engineer
-                            </h4>
-                            <p
-                                class="font-mono text-brand-primary text-sm mb-4"
-                            >
-                                Doxa Dollar | Doxa Foundation
-                            </p>
-                            <p class="mb-4 text-sm leading-relaxed">
-                                Architected a capital-efficient stablecoin
-                                platform on Internet Computer (ICP), optimizing
-                                capital efficiency by 100% via a
-                                non-over-collateralized peg mechanism. Developed
-                                secure Motoko smart contracts and built the
-                                fully on-chain frontend using SvelteKit.
-                            </p>
-                            <!-- Added Links -->
-                            <div class="flex flex-wrap gap-4 mt-2">
-                                <a
-                                    href="https://app.doxadao.org/stake/"
-                                    target="_blank"
-                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        ></path>
-                                    </svg>
-                                    Website
-                                </a>
-                                <a
-                                    href="https://github.com/DoxaFoundation/doxa-v3"
-                                    target="_blank"
-                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                    Repo V3
-                                </a>
-                                <a
-                                    href="https://github.com/DoxaFoundation/Doxa"
-                                    target="_blank"
-                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                    Repo V2
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job 2 -->
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                        <div
-                            class="sm:w-32 flex-shrink-0 font-mono text-sm mt-1 text-brand-text"
-                        >
-                            2024 - 2025
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-brand-white">
-                                Frontend Developer
-                            </h4>
-                            <p
-                                class="font-mono text-brand-primary text-sm mb-4"
-                            >
-                                Velocity
-                            </p>
-                            <p class="mb-4 text-sm leading-relaxed">
-                                Optimized global state and API calls for a
-                                decentralized social media app on AO Arweave,
-                                reducing initial page load times by 25%.
-                                Implemented core communication features using
-                                the Nostr protocol to ensure
-                                censorship-resistant data handling.
-                            </p>
-                            <!-- Added Links -->
-                            <div class="flex flex-wrap gap-4 mt-2">
-                                <a
-                                    href="https://velocity.ar.io/"
-                                    target="_blank"
-                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        ></path>
-                                    </svg>
-                                    Website
-                                </a>
-                                <a
-                                    href="https://github.com/SpaceTurtle-Dao/Velocity"
-                                    target="_blank"
-                                    class="text-xs font-mono text-brand-text hover:text-brand-primary transition-colors flex items-center gap-1.5 border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                    Repo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="mb-24 pt-10">
-                <h3
-                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
-                >
-                    <span class="font-mono text-brand-primary text-lg"
-                        >02.</span
-                    >
-                    Selected Projects
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div
-                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
-                    >
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-xl font-bold text-brand-white">
-                                Gefifi
-                            </h4>
-                            <div class="flex gap-2">
-                                <a
-                                    href="https://github.com/ahdrahees/gefifi"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://gefifi.at0.app"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-6 flex-grow">
-                            An AI-powered construction marketplace. Architected
-                            an AI orchestration layer using Python and Gemini AI
-                            to parse construction documents (DWG/PDF), alongside
-                            a real-time chat system with Svelte 5.
-                        </p>
-                        <div
-                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
-                        >
-                            <span>Svelte 5</span> <span>Python</span>
-                            <span>Gemini AI</span> <span>GCP</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div
-                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
-                    >
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-xl font-bold text-brand-white">
-                                AI Trainer
-                            </h4>
-                            <div class="flex gap-2">
-                                <a
-                                    href="https://github.com/v2i0s2h2/ai_trainer"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://ai-trainer-em7.pages.dev"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-6 flex-grow">
-                            A DevOps & Computer Vision Platform. Containerized a
-                            monorepo application using Docker multi-stage builds
-                            and automated CI/CD pipelines deploying SvelteKit to
-                            Cloudflare and Python APIs via Dokploy.
-                        </p>
-                        <div
-                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
-                        >
-                            <span>FastAPI</span> <span>Docker</span>
-                            <span>Cloudflare</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div
-                        class="glass-card p-6 rounded-lg flex flex-col hover:-translate-y-1 transition-transform"
-                    >
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-xl font-bold text-brand-white">
-                                Cipher Box
-                            </h4>
-                            <div class="flex gap-2">
-                                <a
-                                    href="https://github.com/ahdrahees/cipher-box"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                        />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://cipherbox.at0.app"
-                                    target="_blank"
-                                    class="text-brand-text hover:text-brand-primary transition-colors border border-white/10 rounded px-2 py-1 bg-white/5 hover:border-brand-primary/50"
-                                >
-                                    <svg
-                                        class="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-6 flex-grow">
-                            Designed a fully on-chain password manager and TOTP
-                            generator using VETKeys (Threshold Encryption) for
-                            zero-knowledge data privacy. Awarded 1st Place at
-                            the ICP Zero to Dapp Hackathon.
-                        </p>
-                        <div
-                            class="flex flex-wrap gap-2 font-mono text-xs text-brand-primary"
-                        >
-                            <span>Rust</span> <span>Motoko</span>
-                            <span>VETKeys</span> <span>Svelte</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills" class="mb-24 pt-10">
-                <h3
-                    class="text-2xl font-bold text-brand-white mb-8 flex items-center gap-2"
-                >
-                    <span class="font-mono text-brand-primary text-lg"
-                        >03.</span
-                    >
-                    Core Technologies
-                </h3>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                        <h4
-                            class="text-sm font-mono text-brand-primary mb-4 border-b border-white/10 pb-2"
-                        >
-                            Backend & Infrastructure
-                        </h4>
-                        <ul class="flex flex-wrap gap-2">
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Node.js
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Bun
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Rust
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Golang
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Python
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Docker
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                GCP / AWS
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Firebase
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4
-                            class="text-sm font-mono text-brand-primary mb-4 border-b border-white/10 pb-2"
-                        >
-                            Frontend, AI & Web3
-                        </h4>
-                        <ul class="flex flex-wrap gap-2">
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Svelte / SvelteKit
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                TypeScript
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                React
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Tailwind CSS
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Agentic AI (Gemini)
-                            </li>
-                            <!-- Added ADK -->
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                ADK (Agent Development Kit)
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                Motoko
-                            </li>
-                            <li
-                                class="px-3 py-1 glass-card rounded text-sm text-brand-white"
-                            >
-                                ICP
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="border-t border-white/5 mt-auto">
-            <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col items-center">
-                <p class="font-mono text-sm mb-2 text-brand-text">
-                    Built by Ahammed Rahees
-                </p>
-                <p class="text-xs">Based in Dubai, UAE</p>
+            <div class="proj-links">
+              <a href="https://github.com/ahdrahees/gefifi" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://gefifi.at0.app" target="_blank" class="proj-link-icon" title="Live site">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
-        </footer>
-    </body>
+          </div>
+        </div>
+
+        <!-- Gator -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">Gator</div>
+            <span class="proj-badge">2026</span>
+          </div>
+          <p class="proj-desc">Production-grade RSS feed aggregator in Go. Authentication, PostgreSQL persistence, type-safe queries with sqlc, and ticker-driven background ingestion.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Go</span> &middot;
+              <span class="proj-tag">PostgreSQL</span> &middot;
+              <span class="proj-tag">sqlc</span> &middot;
+              <span class="proj-tag">CLI</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/ahdrahees/gator" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Trainer -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">AI Trainer</div>
+          </div>
+          <p class="proj-desc">DevOps &amp; computer vision platform. Multi-stage Docker builds cut image size 90%. Integrated Google OAuth, CI/CD via Cloudflare Pages and Dokploy.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">FastAPI</span> &middot;
+              <span class="proj-tag">Docker</span> &middot;
+              <span class="proj-tag">Cloudflare</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/v2i0s2h2/ai_trainer" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://ai-trainer-em7.pages.dev" target="_blank" class="proj-link-icon" title="Live site">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cipher Box -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">Cipher Box</div>
+            <span class="proj-badge">🏆 Winner</span>
+          </div>
+          <p class="proj-desc">Fully on-chain password manager and TOTP generator on ICP. Uses VETKeys threshold encryption for zero-knowledge data privacy. First place at ICP Zero to Dapp.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Motoko</span> &middot;
+              <span class="proj-tag">Svelte</span> &middot;
+              <span class="proj-tag">VETKeys</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/ahdrahees/cipher-box" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://cipherbox.at0.app" target="_blank" class="proj-link-icon" title="Live site">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doxa Dollar -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">Doxa Dollar</div>
+          </div>
+          <p class="proj-desc">Decentralised stablecoin platform backed by IMF SDRs and chain-key USDC. Capital-efficient peg mechanism with no over-collateralisation required.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Motoko</span> &middot;
+              <span class="proj-tag">SvelteKit</span> &middot;
+              <span class="proj-tag">ICP</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/DoxaFoundation/doxa-v3" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://app.doxadao.org/stake/" target="_blank" class="proj-link-icon" title="Live site">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pokedex CLI -->
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">Pokedex CLI</div>
+            <span class="proj-badge">2026</span>
+          </div>
+          <p class="proj-desc">Go CLI tool querying PokeAPI with a REPL interface, in-memory caching (5s TTL), and zero external dependencies. Built entirely on the Go standard library.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Go</span> &middot;
+              <span class="proj-tag">REST API</span> &middot;
+              <span class="proj-tag">REPL</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/ahdrahees/pokedexcli" target="_blank" class="proj-link-icon" title="Repo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-label"><span>Skills</span></div>
+
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-pills">
+            <span class="pill primary">Go</span>
+            <span class="pill primary">Node.js</span>
+            <span class="pill primary">Python</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">Express.js</span>
+            <span class="pill">WebSockets</span>
+            <span class="pill">Microservices</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Databases</div>
+          <div class="skill-pills">
+            <span class="pill primary">PostgreSQL</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Firebase Firestore</span>
+            <span class="pill">sqlc</span>
+            <span class="pill">DB Migrations</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Cloud & DevOps</div>
+          <div class="skill-pills">
+            <span class="pill primary">Docker</span>
+            <span class="pill">GCP</span>
+            <span class="pill">AWS</span>
+            <span class="pill">Cloudflare</span>
+            <span class="pill">CI/CD</span>
+            <span class="pill">GitHub Actions</span>
+            <span class="pill">Cloud Build</span>
+            <span class="pill">OAuth 2.0</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-pills">
+            <span class="pill primary">SvelteKit</span>
+            <span class="pill">React</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">AI & Agents</div>
+          <div class="skill-pills">
+            <span class="pill">ADK (Agent Dev Kit)</span>
+            <span class="pill">Gemini AI</span>
+            <span class="pill">LiteLLM</span>
+            <span class="pill">AI Orchestration</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Languages</div>
+          <div class="skill-pills">
+            <span class="pill primary">TypeScript</span>
+            <span class="pill primary">Go</span>
+            <span class="pill primary">Python</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">SQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards">
+      <div class="section-label"><span>Achievements</span></div>
+
+      <div class="awards-list">
+        <div class="award-row">
+          <div class="award-icon win">🏆</div>
+          <div class="award-info">
+            <div class="award-name">OpenChat Botathon</div>
+            <div class="award-sub">Internet Computer Protocol</div>
+          </div>
+          <span class="award-badge win">Winner</span>
+        </div>
+
+        <div class="award-row">
+          <div class="award-icon win">🏆</div>
+          <div class="award-info">
+            <div class="award-name">ICP Zero to Dapp Hackathon</div>
+            <div class="award-sub">Internet Computer Protocol</div>
+          </div>
+          <span class="award-badge win">Winner</span>
+        </div>
+
+        <div class="award-row">
+          <div class="award-icon fin">🎯</div>
+          <div class="award-info">
+            <div class="award-name">ICP Chain Fusion Hackathon — Bitcoin Edition</div>
+            <div class="award-sub">Internet Computer Protocol</div>
+          </div>
+          <span class="award-badge fin">Finalist</span>
+        </div>
+
+        <div class="award-row">
+          <div class="award-icon fin">📜</div>
+          <div class="award-info">
+            <div class="award-name">World Computer Hacker League (WCHL) 2025</div>
+            <div class="award-sub">Internet Computer Protocol</div>
+          </div>
+          <span class="award-badge fin">Participant</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      Ahammed Rahees &nbsp;&middot;&nbsp;
+      <a href="mailto:ahdrahees0@gmail.com">ahdrahees0@gmail.com</a> &nbsp;&middot;&nbsp;
+      Kochi, Kerala
+    </div>
+    <div class="footer-right">Built by hand · 2025</div>
+  </footer>
+
+</body>
 </html>
